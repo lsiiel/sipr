@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="sisir.pages.projectForm.ProjectForm">
+
+       <Grid>
+              <Grid.ColumnDefinitions>
+                     <ColumnDefinition Width="0.2*"/>
+                     <ColumnDefinition Width="0.6*"/>
+                     <ColumnDefinition Width="0.2*"/>
+              </Grid.ColumnDefinitions>
+              <Frame Grid.Column="1"
+                     BorderColor="Gray"
+                     CornerRadius="5"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Fill"
+                     Padding="10"
+                     Margin="5"
+                     HasShadow="True">
+                     <StackLayout Padding="20">
+                            <Label Text="Добавить новый проект"
+                                   FontSize="Title"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="Center"/>
+                            <BoxView HeightRequest="1"
+                                     Color="Gray"
+                                     HorizontalOptions="FillAndExpand"
+                                     Margin="0,10"/>
+
+                            <Label Text="Название команды"
+                                   FontSize="Medium"
+                                          Margin="0,5,0,0"/>
+                            <Entry x:Name="EntryTeamName"
+                                   Placeholder="Введите название команды"/>
+
+                            <Label Text="Описание команды"
+                                   FontSize="Medium"
+                                          Margin="0,5,0,0"/>
+                            <Entry x:Name="EntryDescription"
+                                   Placeholder="Введите описание команды"/>
+
+                            <Label Text="Планируемая дата начала"
+                                   FontSize="Medium"
+                                          Margin="0,5,0,0"/>
+                            <Entry x:Name="EntryPlannedStartDate"
+                                   Placeholder="Введите планируемую дату начала"/>
+
+                            <Label Text="Планируемая дата окончания"
+                                   FontSize="Medium"
+                                          Margin="0,5,0,0"/>
+                            <Entry x:Name="EntryPlannedEndDate"
+                                   Placeholder="Введите планируемую дату окончания"/>
+
+                            <Label Text="Реальная дата начала"
+                                   FontSize="Medium"
+                                          Margin="0,5,0,0"/>
+                            <Entry x:Name="EntryActualStartDate"
+                                   Placeholder="Введите актуальную дату начала"/>
+
+                            <Label Text="Реальная дата окончания"
+                                   FontSize="Medium"
+                                          Margin="0,5,0,0"/>
+                            <Entry x:Name="EntryActualEndDate"
+                                   Placeholder="Введите актуальную дату окончания"/>
+
+                            <Label Text="Дата создания"
+                                   FontSize="Medium"
+                                          Margin="0,5,0,0"/>
+                            <Entry x:Name="EntryCreatedDate"
+                                   Placeholder="Введите дату создания проекта"/>
+
+                            <Label Text="Ответственный сотрудник"
+                                   FontSize="Medium"
+                                          Margin="0,5,0,0"/>
+                            <Entry x:Name="EntryResponsibleEmployee"
+                                   Placeholder="Введите ответственного сотрудника"/>
+
+                            <Label Text="Команда"
+                                   FontSize="Medium"
+                                          Margin="0,5,0,0"/>
+                            <Entry x:Name="EntryTeam"
+                                   Placeholder="Выберите состав команды"/>
+
+                            <Button Text="Сохранить"
+                                    Margin="5"
+                                    Clicked="OnSubmitButtonClicked"
+                                    BackgroundColor="{StaticResource Primary}"
+                                    VerticalOptions="End"/>
+
+                            <Button Text="Отмена"
+                                    Margin="30,0,30,0"
+                                    Clicked="OnBackButtonClicked"
+                                    BackgroundColor="{StaticResource Secondary}"
+                                    VerticalOptions="End"/>
+                     </StackLayout>
+              </Frame>
+       </Grid>
+</ContentPage>

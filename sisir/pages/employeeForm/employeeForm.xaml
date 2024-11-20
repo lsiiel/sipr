@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:employeeData="clr-namespace:sisir.pages.employeeData"
+             x:Class="sisir.pages.employeeForm.EmployeeForm">
+
+    <ContentPage.BindingContext>
+        <employeeData:EmployeeData/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <Grid Padding="20"
+              ColumnSpacing="20"
+              RowSpacing="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="0"
+                  Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <!-- Блок с инициалами -->
+                <Frame
+                    Grid.Row="0"
+                    BorderColor="Gray"
+                    CornerRadius="5"
+                    Padding="10"
+                    Margin="5"
+                    HasShadow="True">
+                    <StackLayout VerticalOptions="Start">
+                        <Label Text="Инициалы"
+                               FontSize="24"
+                               FontAttributes="Bold"/>
+                        <BoxView HeightRequest="1"
+                                 Color="Gray"
+                                 HorizontalOptions="FillAndExpand"
+                                 Margin="0,10"/>
+
+                        <Label Text="Фамилия"/>
+                        <Entry x:Name="EntryMiddleName"
+                               Placeholder="Введите фамилию"
+                               Keyboard="Text"/>
+
+                        <Label Text="Имя"/>
+                        <Entry x:Name="EntryFirstName"
+                               Placeholder="Введите имя"
+                               Keyboard="Text"/>
+
+                        <Label Text="Отчество"/>
+                        <Entry x:Name="EntryLastName"
+                               Placeholder="Введите отчество"
+                               Keyboard="Text"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Блок с контактными данными -->
+                <Frame Grid.Row="1"
+                       BorderColor="Gray"
+                       CornerRadius="5"
+                       Padding="10"
+                       Margin="5"
+                       HasShadow="True">
+                    <StackLayout VerticalOptions="Start">
+                        <Label Text="Контакты"
+                               FontSize="24"
+                               FontAttributes="Bold"/>
+                        <BoxView HeightRequest="1"
+                                 Color="Gray"
+                                 HorizontalOptions="FillAndExpand"
+                                 Margin="0,10"/>
+
+                        <Label Text="Номер телефона"/>
+                        <Entry x:Name="EntryPhoneNumber"
+                               Placeholder="Введите номер телефона"
+                               Keyboard="Telephone"/>
+
+                        <StackLayout>
+                            <Label Text="Почта"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Entry
+                                    x:Name="EntryEmail"
+                                    Placeholder="Введите почту"
+                                    Keyboard="Email"
+                                    VerticalOptions="Center"/>
+                                <Button
+                                    Text="?"
+                                    WidthRequest="30"
+                                    HeightRequest="30"
+                                    BackgroundColor="{StaticResource Secondary}"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Margin="2"
+                                    Clicked="OnEmailInfoButtonTapped"
+                                    Grid.Column="1"/>
+                            </Grid>
+                            <Border x:Name="EmailTooltipLabel"
+                                    BackgroundColor="{StaticResource Secondary}"
+                                    Stroke="{StaticResource White}"
+                                    Padding="5"
+                                    IsVisible="False">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="5"/>
+                                </Border.StrokeShape>
+                                <Label Text="Формат почты: example@domain.com"/>
+                            </Border>
+                        </StackLayout>
+
+
+                        <Label Text="Телеграм"/>
+                        <Entry x:Name="EntryTelegram"
+                               Placeholder="Введите ваш Telegram"
+                               Keyboard="Text"/>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+
+            <!-- Блок с паспортными данными -->
+            <Frame Grid.Column="1"
+                   Grid.Row="0"
+                   BorderColor="Gray"
+                   CornerRadius="5"
+                   Padding="10"
+                   Margin="5"
+                   HasShadow="True">
+                <StackLayout VerticalOptions="Start">
+                    <Label Text="Паспортные данные"
+                           FontSize="24"
+                           FontAttributes="Bold"/>
+                    <BoxView HeightRequest="1"
+                             Color="Gray"
+                             HorizontalOptions="FillAndExpand"
+                             Margin="0,10"/>
+
+                    <Label Text="Дата рождения"/>
+                    <Entry x:Name="EntryDateOfBirth"
+                           Placeholder="Введите дату рождения"
+                           Keyboard="Numeric"/>
+
+                    <Label Text="Серия"/>
+                    <Entry x:Name="EntryPassportSeries"
+                           Placeholder="Введите серию - хххх"
+                           Keyboard="Numeric"/>
+
+                    <Label Text="Номер"/>
+                    <Entry x:Name="EntryPassportNumber"
+                           Placeholder="Введите номер - хххххх"
+                           Keyboard="Numeric"/>
+
+                    <Label Text="Кем выдан"/>
+                    <Entry x:Name="EntryIssuedBy"
+                           Placeholder="Введите кем выдан"
+                           Keyboard="Text"/>
+
+                    <StackLayout>
+                        <Label Text="Дата выдачи"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Entry
+                                x:Name="EntryIssuedDate"
+                                Placeholder="Введите дату выдачи"
+                                Keyboard="Numeric"
+                                VerticalOptions="Center"/>
+                            <Button
+                                Text="?"
+                                WidthRequest="30"
+                                HeightRequest="30"
+                                BackgroundColor="{StaticResource Secondary}"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                Margin="2"
+                                Clicked="OnDateInfoButtonTapped"
+                                Grid.Column="1"/>
+                        </Grid>
+                        <Border x:Name="TooltipLabel"
+                                BackgroundColor="{StaticResource Secondary}"
+                                Stroke="{StaticResource White}"
+                                Padding="5"
+                                IsVisible="False">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="5"/>
+                            </Border.StrokeShape>
+                            <Label Text="Формат даты: День.Месяц.Год"/>
+                        </Border>
+                    </StackLayout>
+
+                    <Label Text="Адрес регистрации"/>
+                    <Entry x:Name="EntryRegistrationAddress"
+                           Placeholder="Введите адрес регистрации"
+                           Keyboard="Text"/>
+
+                    <Label Text="Адрес проживания"/>
+                    <Entry x:Name="EntryResidentialAddress"
+                           Placeholder="Введите адрес проживания"
+                           Keyboard="Text"/>
+                </StackLayout>
+            </Frame>
+
+            <Grid
+                Grid.Column="0"
+                Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.48*"/>
+                    <ColumnDefinition Width="0.04*"/>
+                    <ColumnDefinition Width="0.48*"/>
+                </Grid.ColumnDefinitions>
+                <!-- Блок выбора должности -->
+                <Frame
+                    Grid.Column="0"
+                    BorderColor="Gray"
+                    CornerRadius="5"
+                    Padding="10"
+                    HasShadow="True">
+                    <StackLayout VerticalOptions="Start">
+                        <Grid>
+                            <Label Text="Должность"
+                                   FontSize="20"
+                                   FontAttributes="Bold"
+                                   VerticalOptions="Center"/>
+                            <Button Text="+"
+                                    BackgroundColor="{StaticResource Primary}"
+                                    HorizontalOptions="End"
+                                    VerticalOptions="Center"
+                                    Grid.Column="1"
+                                    Clicked="OnAddPositionButtonClicked"/>
+                        </Grid>
+
+                        <BoxView HeightRequest="1"
+                                 Color="Gray"
+                                 HorizontalOptions="FillAndExpand"
+                                 Margin="0,10"/>
+
+                        <CollectionView ItemsSource="{Binding AvailablePositions}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Orientation="Horizontal">
+                                        <RadioButton
+                                            IsChecked="{Binding IsSelected}"
+                                            Content="{Binding Title}"
+                                            CheckedChanged="OnJobPositionCheckedChanged"/>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Блок выбора уровня квалификации -->
+                <Frame Grid.Column="2"
+                       BorderColor="Gray"
+                       CornerRadius="5"
+                       Padding="10"
+                       HasShadow="True">
+                    <StackLayout VerticalOptions="Start">
+                        <Grid>
+                            <Label Text="Уровень квалификации"
+                                   FontSize="20"
+                                   FontAttributes="Bold"
+                                   VerticalOptions="Center"/>
+                            <Button Text="+"
+                                    BackgroundColor="{StaticResource Primary}"
+                                    HorizontalOptions="End"
+                                    VerticalOptions="Center"
+                                    Grid.Column="1"
+                                    Clicked="OnAddQualificationButtonClicked"/>
+                        </Grid>
+
+                        <BoxView HeightRequest="1"
+                                 Color="Gray"
+                                 HorizontalOptions="FillAndExpand"
+                                 Margin="0,10"/>
+
+                        <CollectionView ItemsSource="{Binding AvailableQualifications}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Orientation="Horizontal">
+                                        <RadioButton
+                                            IsChecked="{Binding IsSelected}"
+                                            Content="{Binding LevelName}"
+                                            CheckedChanged="OnQualificationCheckedChanged"/>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+            <Grid
+                Grid.Column="1"
+                Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.48*"/>
+                    <ColumnDefinition Width="0.04*"/>
+                    <ColumnDefinition Width="0.48*"/>
+                </Grid.ColumnDefinitions>
+                <!-- Блок выбора навыков -->
+                <Frame
+                    Grid.Column="0"
+                    BorderColor="Gray"
+                    CornerRadius="5"
+                    Padding="10"
+                    HasShadow="True">
+                    <StackLayout VerticalOptions="Start">
+                        <Grid>
+                            <Label Text="Навыки"
+                                   FontSize="20"
+                                   FontAttributes="Bold"
+                                   VerticalOptions="Center"/>
+                            <Button Text="+"
+                                    BackgroundColor="{StaticResource Primary}"
+                                    HorizontalOptions="End"
+                                    VerticalOptions="Center"
+                                    Grid.Column="1"
+                                    Clicked="OnAddSkillButtonClicked"/>
+                        </Grid>
+
+                        <BoxView HeightRequest="1"
+                                 Color="Gray"
+                                 HorizontalOptions="FillAndExpand"
+                                 Margin="0,10"/>
+
+                        <!-- <CollectionView ItemsSource="{Binding AvailablePositions}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Orientation="Horizontal">
+                                        <RadioButton
+                                            IsChecked="{Binding IsSelected}"
+                                            Content="{Binding Title}"
+                                            CheckedChanged="OnJobPositionCheckedChanged"/>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView> -->
+                    </StackLayout>
+                </Frame>
+
+                <!-- Блок выбора уровня команды -->
+                <Frame Grid.Column="2"
+                       BorderColor="Gray"
+                       CornerRadius="5"
+                       Padding="10"
+                       HasShadow="True">
+                    <StackLayout VerticalOptions="Start">
+                        <Grid>
+                            <Label Text="Команды"
+                                   FontSize="20"
+                                   FontAttributes="Bold"
+                                   VerticalOptions="Center"/>
+                            <Button Text="+"
+                                    BackgroundColor="{StaticResource Primary}"
+                                    HorizontalOptions="End"
+                                    VerticalOptions="Center"
+                                    Grid.Column="1"
+                                    Clicked="OnAddTeamButtonClicked"/>
+                        </Grid>
+
+                        <BoxView HeightRequest="1"
+                                 Color="Gray"
+                                 HorizontalOptions="FillAndExpand"
+                                 Margin="0,10"/>
+
+                        <!-- <CollectionView ItemsSource="{Binding AvailableQualifications}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Orientation="Horizontal">
+                                        <RadioButton
+                                            IsChecked="{Binding IsSelected}"
+                                            Content="{Binding LevelName}"
+                                            CheckedChanged="OnQualificationCheckedChanged"/>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView> -->
+                    </StackLayout>
+                </Frame>
+            </Grid>
+            <Frame Grid.Column="0"
+                   Grid.Row="2"
+                   Grid.ColumnSpan="2"
+                   BorderColor="Gray"
+                   CornerRadius="5"
+                   Padding="10"
+                   HasShadow="True">
+                <StackLayout VerticalOptions="Start">
+                    <Grid>
+                        <Label Text="Проекты"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"/>
+                        <Button Text="+"
+                                BackgroundColor="{StaticResource Primary}"
+                                HorizontalOptions="End"
+                                VerticalOptions="Center"
+                                Grid.Column="1"
+                                Clicked="OnAddProjectButtonClicked"/>
+                    </Grid>
+
+                    <BoxView HeightRequest="1"
+                             Color="Gray"
+                             HorizontalOptions="FillAndExpand"
+                             Margin="0,10"/>
+
+                    <!-- <CollectionView ItemsSource="{Binding AvailableQualifications}"> -->
+                        <!-- <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal">
+                                    <RadioButton
+                                        IsChecked="{Binding IsSelected}"
+                                        Content="{Binding LevelName}"
+                                        CheckedChanged="OnQualificationCheckedChanged"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView> -->
+                </StackLayout>
+            </Frame>
+            <!-- Кнопки управления -->
+            <Button Text="Отмена"
+                    Clicked="OnCancelButtonClicked"
+                    HeightRequest="30"
+                    BackgroundColor="{StaticResource Secondary}"
+                    Grid.Column="0"
+                    Grid.Row="3"/>
+            <Button Text="Добавить"
+                    Clicked="OnSubmitButtonClicked"
+                    HeightRequest="30"
+                    BackgroundColor="{StaticResource Primary}"
+                    Grid.Column="1"
+                    Grid.Row="3"/>
+        </Grid>
+    </ScrollView>
+</ContentPage>

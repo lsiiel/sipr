@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="sisir.pages.qualificationForm.QualificationForm">
+
+       <Grid>
+              <Grid.ColumnDefinitions>
+                     <ColumnDefinition Width="0.2*"/>
+                     <ColumnDefinition Width="0.6*"/>
+                     <ColumnDefinition Width="0.2*"/>
+              </Grid.ColumnDefinitions>
+              <Frame Grid.Column="1"
+                     BorderColor="Gray"
+                     CornerRadius="5"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Fill"
+                     Padding="10"
+                     Margin="5"
+                     HasShadow="True">
+                     <StackLayout Padding="20">
+                            <Label Text="Добавить новую квалификацию"
+                                   FontSize="Title"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="Center"/>
+                            <BoxView HeightRequest="1"
+                                     Color="Gray"
+                                     HorizontalOptions="FillAndExpand"
+                                     Margin="0,10"/>
+
+                            <Label Text="Название уровня квалификации"
+                                   FontSize="Medium"
+                                          Margin="0,5,0,0"/>
+                            <Entry x:Name="EntryQualificationName"
+                                   Placeholder="Введите название квалификации"/>
+
+                            <Label Text="Коэффициент зарплаты"
+                                   FontSize="Medium"
+                                          Margin="0,5,0,0"/>
+                            <Entry x:Name="EntrySalaryCoefficient"
+                                   Placeholder="Введите коэффициент"
+                                   Keyboard="Numeric"/>
+
+                            <Button Text="Сохранить"
+                                    Margin="5"
+                                    Clicked="OnSubmitButtonClicked"
+                                    BackgroundColor="{StaticResource Primary}"
+                                    VerticalOptions="End"/>
+
+                            <Button Text="Отмена"
+                                    Margin="30,0,30,0"
+                                    Clicked="OnBackButtonClicked"
+                                    BackgroundColor="{StaticResource Secondary}"
+                                    VerticalOptions="End"/>
+                     </StackLayout>
+              </Frame>
+       </Grid>
+</ContentPage>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="sisir.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:sisir"
+    Shell.FlyoutBehavior="Disabled">
+    <ShellSection Route="MainSection">
+        <ShellContent
+            Title="Меню приложения"
+            ContentTemplate="{DataTemplate local:pages.startPage.MainPage}"
+            Route="MainPage" />
+
+        <ShellContent
+            Title="Список сотрудников"
+            ContentTemplate="{DataTemplate local:pages.employeeTable.EmployeeTable}"
+            Route="EmployeeTable" />
+
+        <ShellContent
+            Title="Форма добавления сотрудника"
+            ContentTemplate="{DataTemplate local:pages.employeeForm.EmployeeForm}"
+            Route="EmployeeForm" />
+
+        <ShellContent
+            Title="Форма добавления должности"
+            ContentTemplate="{DataTemplate local:pages.positionForm.PositionForm}"
+            Route="PositionForm" />
+
+        <ShellContent
+            Title="Форма добавления уровня квалификации"
+            ContentTemplate="{DataTemplate local:pages.qualificationForm.QualificationForm}"
+            Route="QualificationForm" />
+
+        <ShellContent
+            Title="Форма добавления команд"
+            ContentTemplate="{DataTemplate local:pages.teamForm.TeamForm}"
+            Route="TeamForm" />
+
+        <ShellContent
+            Title="Форма добавления навыков"
+            ContentTemplate="{DataTemplate local:pages.skillForm.SkillForm}"
+            Route="SkillForm" />
+
+        <ShellContent
+            Title="Форма добавления проектов"
+            ContentTemplate="{DataTemplate local:pages.projectForm.ProjectForm}"
+            Route="ProjectForm" />
+    </ShellSection>
+</Shell>

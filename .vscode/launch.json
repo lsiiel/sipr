@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": ".NET MAUI",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "/Users/lsiiel/Documents/study/sisir/sisir/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/sisir.app/Contents/MacOS/sisir",  // Укажите полный путь к исполняемому файлу
+            "args": [],
+            "cwd": "/Users/lsiiel/Documents/study/sisir/sisir",  // Укажите полный путь к рабочей директории
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        }
+    ]
+}
